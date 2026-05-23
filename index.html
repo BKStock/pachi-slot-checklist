@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pachi Slot 投資判断チェックリスト — BK 要確認事項</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .header {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .section {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #667eea;
+        }
+        .item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #ddd;
+        }
+        .item.known {
+            border-left-color: #28a745;
+            background: #f0f8f0;
+        }
+        .item.unknown {
+            border-left-color: #dc3545;
+            background: #fef0f0;
+        }
+        .item-icon {
+            font-size: 18px;
+            min-width: 24px;
+            text-align: center;
+        }
+        .item-content {
+            flex: 1;
+        }
+        .item-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .item-value {
+            font-size: 14px;
+            color: #666;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f5f5f5;
+            font-weight: 600;
+            color: #333;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .summary-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        .summary-content {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .btn-primary {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎰 Pachi Slot 投資判断チェックリスト</h1>
+            <p style="color: #666; margin-bottom: 20px;">BK投資判断用 — 現状わかる範囲 + Ethan へ確認事項</p>
+        </div>
+
+        <!-- 現状わかっていること -->
+        <div class="section">
+            <div class="section-title">✅ 現状わかっていること</div>
+
+            <div class="subsection">
+                <h3 style="color: #333; margin: 16px 0 12px; font-size: 16px;">👥 チーム構成（確定）</h3>
+                <div class="item known">
+                    <div class="item-icon">👤</div>
+                    <div class="item-content">
+                        <div class="item-label">リーダー</div>
+                        <div class="item-value">Ethan（企画・設計）</div>
+                    </div>
+                </div>
+                <div class="item known">
+                    <div class="item-icon">👨‍💻</div>
+                    <div class="item-content">
+                        <div class="item-label">実装チーム</div>
+                        <div class="item-value">BK（エンジニア）/ Sしゅんs（バックエンド）/ L（QA）</div>
+                    </div>
+                </div>
+                <div class="item known">
+                    <div class="item-icon">🌍</div>
+                    <div class="item-content">
+                        <div class="item-label">翻訳 / ローカライズ</div>
+                        <div class="item-value">Translator🌎（日本語 ↔ 韓国語）</div>
+                    </div>
+                </div>
+                <div class="item known">
+                    <div class="item-icon">📊</div>
+                    <div class="item-content">
+                        <div class="item-label">チームサイズ / ステータス</div>
+                        <div class="item-value">5-6名 / ACTIVE（2026-04-25〜現在）</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 style="color: #333; margin: 16px 0 12px; font-size: 16px;">⚙️ 技術再現度（確定）</h3>
+                <table>
+                    <tr>
+                        <th>レイヤー</th>
+                        <th>説明</th>
+                        <th>再現度</th>
+                    </tr>
+                    <tr>
+                        <td>抽出層</td>
+                        <td>APK リバースエンジニアリング</td>
+                        <td>80%</td>
+                    </tr>
+                    <tr>
+                        <td>変換層</td>
+                        <td>HTML5/JS 再実装</td>
+                        <td>65%</td>
+                    </tr>
+                    <tr>
+                        <td>提示層</td>
+                        <td>UI / 操作感</td>
+                        <td>45%</td>
+                    </tr>
+                    <tr style="background: #f0f8f0;">
+                        <td><strong>平均再現度</strong></td>
+                        <td colspan="2"><strong style="color: #dc3545;">65%</strong></td>
+                    </tr>
+                </table>
+                <div class="item known">
+                    <div class="item-icon">🎲</div>
+                    <div class="item-content">
+                        <div class="item-label">大当り確率ロジック</div>
+                        <div class="item-value">95% 再現成功 ✅ — サーバーサイド乱数生成で安全性確保</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 style="color: #333; margin: 16px 0 12px; font-size: 16px;">🏢 BO（バックオフィス）システム</h3>
+                <div class="item known">
+                    <div class="item-icon">🔗</div>
+                    <div class="item-content">
+                        <div class="item-label">ベース</div>
+                        <div class="item-value">INFINITY K（Bonds 実績あり） — 本番運用中で信頼性確認済み</div>
+                    </div>
+                </div>
+                <div class="item known">
+                    <div class="item-icon">💰</div>
+                    <div class="item-content">
+                        <div class="item-label">支払い・精算（USDT）</div>
+                        <div class="item-value">
+                            • ゲーム社後払い精算: 未精算 2件 / 今月支払い 45,224 USDT<br>
+                            • エージェント9名 / コミッション 2,337 USDT（今月）<br>
+                            • レート: 1 USDT = 1,400 KRW
+                        </div>
+                    </div>
+                </div>
+                <div class="item known">
+                    <div class="item-icon">🏪</div>
+                    <div class="item-content">
+                        <div class="item-label">エージェント構成</div>
+                        <div class="item-value">T5店舗 3 / T4副本 2 / T3支社 2（計9名）</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 style="color: #333; margin: 16px 0 12px; font-size: 16px;">💵 ビジネスモデル</h3>
+                <div class="item known">
+                    <div class="item-icon">💸</div>
+                    <div class="item-content">
+                        <div class="item-label">収益源</div>
+                        <div class="item-value">
+                            1. ホール（エージェント）からの手数料<br>
+                            2. プレイヤーからの有料アイテム / サブスク
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ethan へ確認事項 -->
+        <div class="section">
+            <div class="section-title">❓ 確認が必要な事項（Ethan へ質問）</div>
+
+            <h3 style="color: #dc3545; margin: 16px 0 12px; font-size: 16px;">🔴 P0 — 即座確認（2-3日）</h3>
+            
+            <div class="item unknown">
+                <div class="item-icon">🖥️</div>
+                <div class="item-content">
+                    <div class="item-label">1. フロントエンド技術スタック</div>
+                    <div class="item-value">React / Vue / その他？ | ビルドツール：Vite / Webpack？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">⚙️</div>
+                <div class="item-content">
+                    <div class="item-label">2. バックエンド技術スタック</div>
+                    <div class="item-value">Node.js / Python / Java？ | フレームワーク：Express / FastAPI？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">📡</div>
+                <div class="item-content">
+                    <div class="item-label">3. API 仕様</div>
+                    <div class="item-value">REST or GraphQL？ | 認証：JWT / Session？ | INFINITY K API 流用可能？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">🗄️</div>
+                <div class="item-content">
+                    <div class="item-label">4. データベース</div>
+                    <div class="item-value">PostgreSQL / MySQL / MongoDB？ | スケーラビリティ対策は？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">☁️</div>
+                <div class="item-content">
+                    <div class="item-label">5. デプロイ環境</div>
+                    <div class="item-value">AWS / GCP / 自社サーバー？ | CI/CD：GitHub Actions / GitLab CI？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">💳</div>
+                <div class="item-content">
+                    <div class="item-label">6. 支払い・精算ロジック（USDT）</div>
+                    <div class="item-value">スマートコントラクト or 中央管理？ | ウォレット連携：MetaMask？ | 精算サイクルは？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">🔐</div>
+                <div class="item-content">
+                    <div class="item-label">7. セキュリティ監査</div>
+                    <div class="item-value">PenTest 実施状況？ | PCI-DSS / ISO 27001 準拠状況？</div>
+                </div>
+            </div>
+
+            <h3 style="color: #ffc107; margin: 24px 0 12px; font-size: 16px;">⚠️ P1 — Phase 0 中確認（2週間）</h3>
+            
+            <div class="item unknown">
+                <div class="item-icon">⚡</div>
+                <div class="item-content">
+                    <div class="item-label">8. パフォーマンス</div>
+                    <div class="item-value">RPS（ピーク時）は？ | P99 レイテンシ目標は？ | キャッシング戦略は？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">📈</div>
+                <div class="item-content">
+                    <div class="item-label">9. スケーラビリティ</div>
+                    <div class="item-value">オートスケール設定は有り？ | 最大スケール想定は何インスタンス？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">📊</div>
+                <div class="item-content">
+                    <div class="item-label">10. 監視・ロギング</div>
+                    <div class="item-value">APM ツール：DataDog / New Relic？ | ログ集約：ELK？</div>
+                </div>
+            </div>
+
+            <div class="item unknown">
+                <div class="item-icon">💰</div>
+                <div class="item-content">
+                    <div class="item-label">11. コスト見積もり</div>
+                    <div class="item-value">月次ランニングコスト見積もりは？ | スケール時の増分コスト予測は？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 投資判断 -->
+        <div class="section">
+            <div class="section-title">🎯 投資判断フレームワーク（BK 現在の見解）</div>
+
+            <div class="summary-box">
+                <div class="summary-title">✅ 推奨シナリオ：段階的関与</div>
+                <div class="summary-content">
+                    <strong>Phase 0（6ヶ月、投資額 $0）：技術顧問モード</strong><br>
+                    • BK が技術リードとして BO/FE システム仕様確認・検証を実施<br>
+                    • リスク評価：60-70% 削減（6ヶ月 = 十分な検証期間）<br>
+                    • 意思決定：Go / No-Go の判定基準を明確化<br><br>
+                    <strong>Phase 1（投資実行時点、投資額 $300K-600K）：本格開発</strong><br>
+                    • Phase 0 で合意した仕様に基づき、チーム拡大 → 本開発<br>
+                    • ホール 5-10 社テスト → 市場検証<br>
+                    • 利益分配契約・法的確認 → ガバナンス確立
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-title">❌ 回避するシナリオ</div>
+                <div class="summary-content">
+                    <strong>即座投資（Go / No-Go 不確定状態での投資）</strong><br>
+                    • リスク：超高リスク（60-80% 失敗確率）<br>
+                    • 法的リスク：JASRAC / 著作権違反の可能性<br>
+                    • チームリスク：時間不足 → プロジェクト停滞<br>
+                    • 市場リスク：ホール獲得が難しい
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-title">🔐 6つの必須条件（投資実行前）</div>
+                <div class="summary-content">
+                    1. <strong>法的：</strong> 弁護士意見書（パチスロ Web 化の合法性確認）<br>
+                    2. <strong>著作権：</strong> JASRAC 許可 + 個別パチスロメーカーライセンス<br>
+                    3. <strong>技術：</strong> Android 複数機種での稼働テスト完了<br>
+                    4. <strong>市場：</strong> ホール 5-10 社との正式 LOI（Letter of Intent）<br>
+                    5. <strong>資金：</strong> 18ヶ月分ランニングコスト確保（$100K-200K）<br>
+                    6. <strong>ガバナンス：</strong> 利益分配契約・スキーム確立（Ethan / チーム との合意）
+                </div>
+            </div>
+        </div>
+
+        <!-- Ethan へ送付 -->
+        <div class="section">
+            <div class="section-title">📋 Ethan へ送付するチェックリスト</div>
+            <p style="color: #666; margin-bottom: 16px;">下記リンクをクリックして、インタラクティブなチェックリストを開いてください。回答を記入して JSON エクスポートし、BK に返信してください。</p>
+            
+            <div style="text-align: center; margin: 24px 0;">
+                <a href="https://cache-1e5cl6lf6-tikbetrnk-gmailcoms-projects.vercel.app/pachi_bo_fe_tech_checklist.html" target="_blank" style="display: inline-block; padding: 16px 32px; background: #667eea; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s;">
+                    🔗 Ethan 用チェックリストを開く
+                </a>
+            </div>
+
+            <p style="color: #999; font-size: 12px; text-align: center;">返答期限：2-3日 | フォーマット：JSON / テキスト</p>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 32px; padding: 20px; color: #999; font-size: 12px;">
+            <p>Pachi Slot 投資判断チェックリスト v2.0</p>
+            <p>Status: ⏳ Ethan 回答待機中</p>
+        </div>
+    </div>
+</body>
+</html>
